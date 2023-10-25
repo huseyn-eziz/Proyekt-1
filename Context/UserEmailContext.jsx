@@ -1,26 +1,24 @@
-import axios from "axios"
-import { createContext, useEffect, useState } from "react"
+import axios from "axios";
+import { createContext, useEffect, useState } from "react";
 
-export const UsEmailContext = createContext('')
+export const Emailistifade = createContext('')
+
+const UserEmailContext = ({children}) => {
+const [email,setEmail] = useState('')
 
 const url = 'https://jsonplaceholder.typicode.com/users'
+useEffect(()=>{
+    axios.get(url).then(({data})=> 
+    setEmail(data[0].email))
+},[])
 
-
-const UserEmailContext = ({ children }) => {
-    const [email, setEmail] = useState('')
-
-
-    useEffect(() => {
-        axios.get(url).then(({ data }) => {
-            setEmail(data[0].email)
-        })
-    }, [])
-
-    return (
-        <UsEmailContext.Provider value={email}>
-            {children}
-        </UsEmailContext.Provider>
-    )
+  return (
+    <Emailistifade.Provider value ={email}>
+        {children}
+    </Emailistifade.Provider>
+  )
 }
 
-export default UserEmailContext;
+export default UserEmailContext
+
+

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { MenimContext } from '../Context/Context'
-import { UsEmailContext } from '../Context/UserEmailContext'
+import { Emailistifade } from '../Context/UserEmailContext'
 
 const Footer = () => {
   const ehmedzade =  useContext(MenimContext)
-  const email = useContext(UsEmailContext)
+  const email = useContext(Emailistifade)
   return (
     <div>
       {ehmedzade.name + ehmedzade.surname} +
